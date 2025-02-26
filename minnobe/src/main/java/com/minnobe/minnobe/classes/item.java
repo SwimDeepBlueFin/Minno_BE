@@ -2,7 +2,7 @@ package com.minnobe.minnobe.classes;
 
 import java.util.ArrayList;
     
-class Item {
+public class Item {
         String itemid;
         String type;
         String brand;

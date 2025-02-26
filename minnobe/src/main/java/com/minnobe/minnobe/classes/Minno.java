@@ -1,6 +1,11 @@
 package com.minnobe.minnobe.classes;
 
- class User {
+import java.util.ArrayList;
+
+//import com.minnobe.minnobe.classes.History;
+//import com.minnobe.minnobe.classes.Transaction;
+
+ public class Minno {
 	String userID;
 	String firstname;
 	String lastname;
@@ -9,11 +14,13 @@ package com.minnobe.minnobe.classes;
 	String username;
 	String password;
 	double balance;
+	ArrayList<String> itemList;
+	
 	
 
 
-	public User(String userID, String firstname, String lastname, String phonenumber, String email,
-			 String username, String password, double balance) {
+	public Minno(String userID, String firstname, String lastname, String phonenumber, String email,
+			 String username, String password, double balance, ArrayList<String> itemList) {
 		super();
 		this.userID = userID;
 		this.firstname = firstname;
@@ -23,13 +30,11 @@ package com.minnobe.minnobe.classes;
 		this.username = username;
 		this.password = password;
 		this.balance = balance;
-		
+		this.itemList = itemList;
 	}
 	
 
-	public User() {
-		// TODO Auto-generated constructor stub
-	}
+
 
 	public String getUsername() {
 		return username;
@@ -80,6 +85,15 @@ package com.minnobe.minnobe.classes;
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+
+	public ArrayList<String> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(ArrayList<String> itemList) {
+		this.itemList = itemList;
+	}
+
 	
 
 }
