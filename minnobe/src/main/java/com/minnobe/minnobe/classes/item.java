@@ -1,18 +1,47 @@
 package com.minnobe.minnobe.classes;
 
 import java.util.ArrayList;
-    
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "item")    
 public class Item {
+        
+        @Id
+        @GeneratedValue(strategy = GenerationType.AUTO)
         String itemid;
+
+        @Column(name = "itemType")
         String type;
+
+        @Column(name = "brand")
         String brand;
+
+        @Column(name = "description")
         String description;
+
+        @Column(name = "condition")
         String condition;
+
+        @Column(name = "locatiionId")
         String locationid;
+        
+        @Column(name = "userId")
         String userid;
+
+        @Column(name = "rating")
         int rating;
+
+        @Column(name = "numberOfUses")
         int numberofuses;
+
+        @Column(name = "accessories")
         ArrayList<String> accessories;
+
+        @Column(name = "historyId")
         String historyid;
         
     public Item(String itemid, String type, String brand, String description, String condition, String locationid,
@@ -117,5 +146,15 @@ public class Item {
     public void setHistoryid(String historyid) {
             this.historyid = historyid;
 }
+
+    @Override
+    public String toString() {
+        return "Item [itemid=" + itemid + ", type=" + type + ", brand=" + brand + ", description=" + description
+                + ", condition=" + condition + ", locationid=" + locationid + ", userid=" + userid + ", rating="
+                + rating + ", numberofuses=" + numberofuses + ", accessories=" + accessories + ", historyid="
+                + historyid + "]";
+    }
+    
+
 }       
         

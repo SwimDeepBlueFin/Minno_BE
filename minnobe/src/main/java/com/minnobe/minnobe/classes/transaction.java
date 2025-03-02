@@ -1,25 +1,57 @@
 package com.minnobe.minnobe.classes;
 
-//Elaborate on this 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="transaction")
 public class Transaction {
     //Apple pay generates a unique transaction ID, CC info is never stored
-    String renterId;
-    String owenerId;
-    String deliveryDriverId;
-    String itemId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     String transactionId;
+   
+    @Column(name="renterId")
+    String renterId;
+
+    @Column(name="ownerId")
+    String ownerId;
+
+    @Column(name="deliveryDriverId")
+    String deliveryDriverId;
+
+    @Column(name="itemId")
+    String itemId;
+
+    @Column(name="paymentId")
+    String paymentId;
+
+    public Transaction(String renterId, String ownerId, String deliveryDriverId, String itemId, String transactionId,
+            String paymentId) {
+        this.renterId = renterId;
+        this.ownerId = ownerId;
+        this.deliveryDriverId = deliveryDriverId;
+        this.itemId = itemId;
+        this.transactionId = transactionId;
+        this.paymentId = paymentId;
+    }
     
+    public String getPaymentId() {
+        return paymentId;
+    }
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
     public String getRenterId() {
         return renterId;
     }
     public void setRenterId(String renterId) {
         this.renterId = renterId;
     }
-    public String getOwenerId() {
-        return owenerId;
+    public String getOwnerId() {
+        return ownerId;
     }
-    public void setOwenerId(String owenerId) {
-        this.owenerId = owenerId;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
     public String getDeliveryDriverId() {
         return deliveryDriverId;
@@ -40,16 +72,11 @@ public class Transaction {
         this.transactionId = transactionId;
     }
 
-    public Transaction(String renterId, String owenerId, String deliveryDriverId, String itemId, String transactionId) {
-        this.renterId = renterId;
-        this.owenerId = owenerId;
-        this.deliveryDriverId = deliveryDriverId;
-        this.itemId = itemId;
-        this.transactionId = transactionId;
+    @Override
+    public String toString() {
+        return "Transaction [transactionId=" + transactionId + ", renterId=" + renterId + ", ownerId=" + ownerId
+                + ", deliveryDriverId=" + deliveryDriverId + ", itemId=" + itemId + ", paymentId=" + paymentId + "]";
     }
 
-    
-
-    
 
 }

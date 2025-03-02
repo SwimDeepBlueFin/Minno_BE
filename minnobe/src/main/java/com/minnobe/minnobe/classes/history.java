@@ -2,11 +2,22 @@ package com.minnobe.minnobe.classes;
 
 import java.util.ArrayList;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "history")
 public class History {
    
-       //TODO  - This is to be weeded out.
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     String historyID;
+
+    @Column(name = "historyType")
     String historyType;
+
+    @Column(name = "history")
     ArrayList<String> history;
 
     public History(String historyID, String historyType, ArrayList<String> history) {
@@ -16,7 +27,6 @@ public class History {
         this.history = history;
     }
  
-
 
     public String getHistoryID() {
         return historyID;
@@ -37,4 +47,10 @@ public class History {
         this.historyType = historyType;
     }
     
+
+    @Override
+    public String toString() {
+        return "History [historyID=" + historyID + ", historyType=" + historyType + ", history=" + history + "]";
+    }
+
 }

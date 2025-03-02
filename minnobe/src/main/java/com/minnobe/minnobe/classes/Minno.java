@@ -1,24 +1,44 @@
 package com.minnobe.minnobe.classes;
 
 import java.util.ArrayList;
+import jakarta.persistence.*;
+
 
 //import com.minnobe.minnobe.classes.History;
 //import com.minnobe.minnobe.classes.Transaction;
-
+@Entity
+@Table(name="minnos")
  public class Minno {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	String userID;
+
+	@Column(name = "firstname")
 	String firstname;
+
+	@Column(name = "lastname")
 	String lastname;
+
+	@Column(name="phone")
 	String phonenumber;
+
+	@Column(name = "email")
 	String email;
+
+	@Column(name = "username")
 	String username;
+
+	@Column(name = "password")
 	String password;
+	//Add PAssword Hashing
+
+	@Column(name = "balance")
 	double balance;
+
+	@Column(name = "itemlist")
 	ArrayList<String> itemList;
 	
 	
-
-
 	public Minno(String userID, String firstname, String lastname, String phonenumber, String email,
 			 String username, String password, double balance, ArrayList<String> itemList) {
 		super();
@@ -92,6 +112,14 @@ import java.util.ArrayList;
 
 	public void setItemList(ArrayList<String> itemList) {
 		this.itemList = itemList;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Minno [userID=" + userID + ", firstname=" + firstname + ", lastname=" + lastname + ", phonenumber="
+				+ phonenumber + ", email=" + email + ", username=" + username + ", password=" + password + ", balance="
+				+ balance + ", itemList=" + itemList + "]";
 	}
 
 	

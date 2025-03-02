@@ -1,5 +1,7 @@
 package com.minnobe.minnobe.services;
 
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +34,7 @@ public class transactionservice {
     
     
     @PostMapping("/createTransaction")
-    public String createTransaction(@RequestBody String entity) {
+    public Map<String, Object>  createTransaction(@RequestBody Map<String, Object> entity) {
         //TODO: process POST request
         //Hit Stripe API for Create Charge
         //Log transaction in Transaction Table
@@ -40,10 +42,10 @@ public class transactionservice {
     }
 
     @PostMapping("/payOwner")
-    public String postMethodName(@RequestBody String entity) {
+    public Map<String, Object>  postMethodName(@RequestBody Map<String, Object> entity) {
         //TODO: process POST request
         //Hit Stripe API for Create Payout
-        //Log Transaction in Transaction table
+        //Log Transaction in Transaction
         
         return entity;
     }
